@@ -1,528 +1,248 @@
+
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cœur des Femmes ASBL — Gestion · Développement · Liberté</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              white: '#FFFFFF',
-              ivory: '#FAF8F2',
-              black: '#0F1412',
-              ink: '#18201D',
-              green: '#064E43',
-              greenLight: '#0A6D5E',
-              gold: '#C9A227',
-              goldBright: '#E5C158',
-              goldDark: '#9A7712',
-            }
-          },
-          fontFamily: {
-            serif: ['Cinzel', 'serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    /* Motif géométrique africain subtil sur fond blanc/ivoire */
-    .african-bg-light {
-      background-color: #FAF8F2;
-      background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23064E43' stroke-width='0.6' stroke-opacity='0.07'%3E%3Cpath d='M32 2L62 32L32 62L2 32z'/%3E%3Cpath d='M32 13L51 32L32 51L13 32z'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%23C9A227' fill-opacity='0.14'/%3E%3C/g%3E%3C/svg%3E");
-    }
-    .gold-shimmer {
-      background: linear-gradient(135deg, #9A7712 0%, #C9A227 45%, #E5C158 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .page-section {
-      display: none;
-      animation: fadeIn 0.3s ease-out;
-    }
-    .page-section.active {
-      display: block;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Cœur des Femmes ASBL accompagne les femmes vers la dignité, l'autonomie et la liberté à Kinshasa.">
+
+    <meta name="theme-color" content="#073D35">
+
+    <title>Cœur des Femmes ASBL | Gestion • Développement • Liberté</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-brand-white text-brand-ink font-sans antialiased selection:bg-brand-gold selection:text-brand-black overflow-x-hidden">
 
-  <!-- BOUTON RETOUR FLOTTANT & TACTILE SUR LE CÔTÉ GAUCHE -->
-  <div class="fixed left-3 top-1/2 -translate-y-1/2 z-50">
-    <button id="sideBackBtn" onclick="goBack()" title="Retour (ou glisser vers la droite)"
-      class="group flex items-center gap-1.5 bg-brand-black/90 hover:bg-brand-green text-brand-goldBright border border-brand-gold/60 backdrop-blur-md px-3 py-3 rounded-r-2xl rounded-l-lg shadow-lg transition-all duration-300 active:scale-95">
-      <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-      <span class="hidden md:inline text-xs font-semibold tracking-wider uppercase">Retour</span>
-    </button>
-  </div>
+<body>
 
-  <!-- BOUTON WHATSAPP / APPEL DIRECT FLOTTANT -->
-  <a href="https://wa.me/243971833809?text=Bonjour%20C%C5%93ur%20des%20Femmes%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20organisation%2C%20vos%20actions%20et%20les%20possibilit%C3%A9s%20d'accompagnement."
-     target="_blank" rel="noopener noreferrer"
-     class="fixed right-4 bottom-5 z-50 flex items-center gap-2 bg-brand-green hover:bg-brand-black text-white border border-brand-gold px-4 py-3 rounded-full shadow-xl transition-all duration-300 active:scale-95">
-    <span class="w-2.5 h-2.5 rounded-full bg-brand-goldBright animate-pulse"></span>
-    <span class="text-xs font-bold tracking-wide">WhatsApp • +243 971 833 809</span>
-  </a>
+    <!-- EN-TÊTE DU SITE -->
+    <header class="header">
 
-  <!-- EN-TÊTE : LOGO À GAUCHE + TITRE À CÔTÉ + DEVISE EN DESSOUS -->
-  <header class="sticky top-0 z-40 bg-brand-white/95 backdrop-blur-md border-b border-brand-gold/35 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center py-3 min-h-[5.25rem]">
-        <button onclick="navigateTo('accueil')" class="flex items-center gap-3.5 text-left group">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-full bg-brand-white p-0.5 border-2 border-brand-gold overflow-hidden shadow-sm flex items-center justify-center">
-            <img src="photo-output.jpeg" alt="Logo Cœur des Femmes ASBL"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                 class="w-full h-full object-contain rounded-full" />
-            <div style="display:none;" class="w-full h-full bg-brand-green text-brand-goldBright font-serif font-bold text-base items-center justify-center rounded-full">
-              CDF
+        <a href="index.html" class="brand">
+            <img
+                src="images/logo-coeur-des-femmes.png"
+                alt="Logo officiel Cœur des Femmes ASBL"
+                class="logo"
+            >
+
+            <div class="brand-text">
+                <h2>Cœur des Femmes</h2>
+                <span>GESTION • DÉVELOPPEMENT • LIBERTÉ</span>
             </div>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-serif text-lg sm:text-xl font-bold leading-tight text-brand-black group-hover:text-brand-green transition">
-              Cœur des Femmes
-            </span>
-            <span class="text-[10px] sm:text-[11px] font-semibold tracking-[0.14em] text-brand-green uppercase mt-0.5">
-              Gestion · Développement · Liberté
-            </span>
-          </div>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
-        <!-- MENU DESKTOP -->
-        <nav class="hidden lg:flex items-center gap-1">
-          <button onclick="navigateTo('accueil')" data-nav="accueil" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold text-brand-green bg-brand-green/10 transition">Accueil</button>
-          <button onclick="navigateTo('apropos')" data-nav="apropos" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-brand-ink hover:text-brand-green transition">À propos</button>
-          <button onclick="navigateTo('actions')" data-nav="actions" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-brand-ink hover:text-brand-green transition">Nos actions</button>
-          <button onclick="navigateTo('galerie')" data-nav="galerie" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-brand-ink hover:text-brand-green transition">Photos & Actions</button>
-          <button onclick="navigateTo('contact')" data-nav="contact" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium text-brand-ink hover:text-brand-green transition">Contact</button>
-          <a href="https://wa.me/243971833809?text=Bonjour%20C%C5%93ur%20des%20Femmes%2C%20je%20souhaite%20soutenir%20votre%20mission."
-             target="_blank" rel="noopener noreferrer"
-             class="ml-3 px-5 py-2.5 rounded-full text-sm font-bold bg-brand-green hover:bg-brand-black text-white border border-brand-gold transition shadow-sm">
-            Soutenir
-          </a>
+        <nav class="navigation" id="navigation">
+
+            <a href="#accueil">Accueil</a>
+            <a href="#association">Qui sommes-nous ?</a>
+            <a href="#mission">Notre mission</a>
+            <a href="#actions">Nos actions</a>
+            <a href="#contact">Contact</a>
+
+            <a href="https://wa.me/243971833809"
+               class="nav-donate">
+                Nous soutenir
+            </a>
+
         </nav>
 
-        <!-- BOUTON MENU MOBILE -->
-        <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-lg border border-brand-gold/50 text-brand-green bg-brand-ivory">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
+    </header>
 
-    <!-- MENU MOBILE -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-brand-white border-t border-brand-gold/30 px-4 pt-3 pb-5 space-y-1.5">
-      <button onclick="navigateTo('accueil')" class="block w-full text-left px-4 py-2.5 rounded-lg font-semibold text-brand-green bg-brand-green/10">Accueil</button>
-      <button onclick="navigateTo('apropos')" class="block w-full text-left px-4 py-2.5 rounded-lg font-medium text-brand-ink hover:bg-brand-ivory">À propos & Valeurs</button>
-      <button onclick="navigateTo('actions')" class="block w-full text-left px-4 py-2.5 rounded-lg font-medium text-brand-ink hover:bg-brand-ivory">Nos actions (01–06)</button>
-      <button onclick="navigateTo('galerie')" class="block w-full text-left px-4 py-2.5 rounded-lg font-medium text-brand-ink hover:bg-brand-ivory">Galerie photos de nos actions</button>
-      <button onclick="navigateTo('contact')" class="block w-full text-left px-4 py-2.5 rounded-lg font-medium text-brand-ink hover:bg-brand-ivory">Contact</button>
-    </div>
-  </header>
 
-  <!-- CONTENEUR PRINCIPAL -->
-  <main class="african-bg-light min-h-screen relative">
-    <!-- Liserés latéraux discrets blanc / doré / vert -->
-    <div class="hidden xl:block fixed inset-y-0 left-0 w-3 bg-gradient-to-b from-brand-green/15 via-brand-gold/25 to-brand-green/15 pointer-events-none"></div>
-    <div class="hidden xl:block fixed inset-y-0 right-0 w-3 bg-gradient-to-b from-brand-green/15 via-brand-gold/25 to-brand-green/15 pointer-events-none"></div>
+    <!-- PAGE D'ACCUEIL -->
+    <main>
 
-    <!-- ==================== PAGE 1 : ACCUEIL ==================== -->
-    <section id="page-accueil" class="page-section active">
-      <div class="bg-brand-white border-b border-brand-gold/30 py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-ivory border border-brand-gold/50 text-brand-green text-xs font-bold tracking-wider uppercase">
-              <span class="w-2 h-2 rounded-full bg-brand-gold"></span>
-              ASBL · Kinshasa, République démocratique du Congo
+        <section class="hero" id="accueil">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <div class="location">
+                    <span></span>
+                    ASBL • KINSHASA, RÉPUBLIQUE DÉMOCRATIQUE DU CONGO
+                </div>
+
+                <h1>
+                    Chaque femme a du prix.
+                    Chaque histoire a de la valeur.
+                </h1>
+
+                <p>
+                    Cœur des Femmes accompagne les femmes vers
+                    la dignité, l'autonomie et la liberté.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#mission" class="btn-primary">
+                        Découvrir notre mission
+                        <span>→</span>
+                    </a>
+
+                    <a href="https://wa.me/243971833809"
+                       class="btn-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>♡</span>
+                        Nous contacter sur WhatsApp
+                    </a>
+
+                </div>
+
             </div>
-            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-black">
-              Chaque femme a du prix. Chaque histoire a de la <span class="gold-shimmer">valeur.</span>
-            </h1>
-            <p class="text-brand-ink/85 text-lg leading-relaxed max-w-2xl">
-              <strong>Cœur des Femmes</strong> accompagne les femmes vers la dignité, l’autonomie et la liberté.
+
+            <div class="hero-decoration"></div>
+
+        </section>
+
+
+        <!-- PRÉSENTATION -->
+        <section class="about section" id="association">
+
+            <div class="section-label">
+                QUI SOMMES-NOUS ?
+            </div>
+
+            <h2>
+                Une présence ancrée dans les réalités
+                des femmes à Kinshasa.
+            </h2>
+
+            <p>
+                Cœur des Femmes est une Association Sans But Lucratif
+                engagée dans la promotion des droits, de la dignité
+                et du bien-être des femmes.
             </p>
-            <div class="flex flex-wrap gap-4 pt-2">
-              <button onclick="navigateTo('actions')" class="px-7 py-3.5 rounded-full bg-brand-green hover:bg-brand-black text-white font-bold text-sm border border-brand-gold shadow-md transition">
-                Découvrir notre mission
-              </button>
-              <a href="https://wa.me/243971833809?text=Bonjour%20C%C5%93ur%20des%20Femmes%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20organisation%2C%20vos%20actions%20et%20les%20possibilit%C3%A9s%20d'accompagnement."
-                 target="_blank" rel="noopener noreferrer"
-                 class="px-7 py-3.5 rounded-full bg-brand-ivory hover:bg-brand-gold/15 text-brand-black border border-brand-gold font-semibold text-sm transition">
-                Nous contacter sur WhatsApp →
-              </a>
-            </div>
-          </div>
 
-          <!-- CARTE LOGO & DEVISE -->
-          <div class="lg:col-span-5 flex justify-center">
-            <div class="w-full max-w-md rounded-3xl bg-brand-ivory border border-brand-gold/50 p-7 text-center shadow-lg">
-              <div class="w-52 h-52 sm:w-56 sm:h-56 mx-auto rounded-full bg-brand-white p-3 border-4 border-brand-gold shadow-md flex items-center justify-center overflow-hidden">
-                <img src="photo-output.jpeg" alt="Emblème officiel Cœur des Femmes ASBL" class="w-full h-full object-contain" />
-              </div>
-              <h2 class="mt-5 font-serif text-2xl font-bold text-brand-black">Cœur des Femmes</h2>
-              <p class="text-xs font-bold tracking-[0.16em] text-brand-green uppercase mt-1">
-                Gestion · Développement · Liberté
-              </p>
-              <p class="text-xs text-brand-ink/75 mt-3">
-                Une présence ancrée dans les réalités des femmes à Kinshasa.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+            <p>
+                Notre organisation œuvre pour bâtir une société
+                où chaque femme peut vivre dans le respect,
+                la sécurité et la dignité.
+            </p>
 
-      <!-- APERÇU RAPIDE DES VALEURS -->
-      <div class="max-w-7xl mx-auto py-14 px-4 sm:px-6 lg:px-8">
-        <div class="rounded-3xl bg-brand-white border border-brand-gold/40 p-8 sm:p-10 shadow-sm">
-          <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
-            <div>
-              <span class="text-xs font-bold tracking-widest uppercase text-brand-goldDark">Pourquoi Cœur des Femmes ?</span>
-              <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-black mt-1">
-                La dignité n’est pas une promesse. C’est le point de départ.
-              </h2>
-            </div>
-            <button onclick="navigateTo('galerie')" class="px-5 py-2.5 rounded-full bg-brand-ivory hover:bg-brand-green hover:text-white text-brand-green border border-brand-green/40 text-xs font-bold uppercase tracking-wider transition">
-              Voir les photos de nos actions →
-            </button>
-          </div>
-          <p class="text-brand-ink/85 mb-6 max-w-3xl">
-            Nous construisons une société où chaque femme connaît sa valeur, exerce ses droits, développe son potentiel et peut vivre dans la dignité et la liberté.
-          </p>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            <span class="px-4 py-2.5 rounded-xl bg-brand-ivory border border-brand-gold/40 text-center font-semibold text-brand-green text-sm">Dignité</span>
-            <span class="px-4 py-2.5 rounded-xl bg-brand-ivory border border-brand-gold/40 text-center font-semibold text-brand-green text-sm">Solidarité</span>
-            <span class="px-4 py-2.5 rounded-xl bg-brand-ivory border border-brand-gold/40 text-center font-semibold text-brand-green text-sm">Respect</span>
-            <span class="px-4 py-2.5 rounded-xl bg-brand-ivory border border-brand-gold/40 text-center font-semibold text-brand-green text-sm">Autonomie</span>
-            <span class="px-4 py-2.5 rounded-xl bg-brand-ivory border border-brand-gold/40 text-center font-semibold text-brand-green text-sm">Égalité</span>
-            <span class="px-4 py-2.5 rounded-xl bg-brand-ivory border border-brand-gold/40 text-center font-semibold text-brand-green text-sm">Liberté</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- ==================== PAGE 2 : À PROPOS & VALEURS ==================== -->
-    <section id="page-apropos" class="page-section py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto space-y-10">
-        <div class="bg-brand-white rounded-3xl border border-brand-gold/40 p-8 sm:p-10 shadow-sm space-y-5">
-          <span class="text-xs font-bold tracking-widest uppercase text-brand-goldDark">Notre engagement</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-black">
-            Agir aux côtés des femmes, avec respect et détermination.
-          </h2>
-          <p class="text-brand-ink/85 leading-relaxed">
-            Cœur des Femmes est une association sans but lucratif basée à Kinshasa. Nous accompagnons les femmes victimes de violences conjugales et celles confrontées à la vulnérabilité, pour les aider à retrouver sécurité, confiance et capacité d’action.
-          </p>
-          <p class="text-brand-ink/85 leading-relaxed">
-            Notre approche relie écoute, protection, développement personnel et autonomie économique. Parce qu’une transformation durable commence lorsque chaque femme peut décider librement de son avenir.
-          </p>
-          <div class="pt-2 flex flex-wrap gap-3">
-            <a href="https://wa.me/243971833809?text=Bonjour%20C%C5%93ur%20des%20Femmes%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20organisation%2C%20vos%20actions%20et%20les%20possibilit%C3%A9s%20d'accompagnement."
-               target="_blank" rel="noopener noreferrer"
-               class="px-6 py-3 rounded-full bg-brand-green text-white font-bold text-sm border border-brand-gold hover:bg-brand-black transition">
-              Échanger avec notre équipe
+
+        <!-- MISSION -->
+        <section class="mission section" id="mission">
+
+            <div class="section-label">
+                NOTRE ENGAGEMENT
+            </div>
+
+            <h2>
+                La dignité n'est pas une promesse.
+                C'est le point de départ.
+            </h2>
+
+            <p>
+                Nous construisons une société où chaque femme
+                connaît sa valeur, exerce ses droits,
+                développe son potentiel et peut vivre
+                dans la dignité et la liberté.
+            </p>
+
+            <a href="#actions" class="text-link">
+                Découvrir nos engagements →
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ==================== PAGE 3 : NOS ACTIONS (01 À 06) ==================== -->
-    <section id="page-actions" class="page-section py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto space-y-10">
-        <div class="bg-brand-white rounded-3xl border border-brand-gold/40 p-8 sm:p-10 shadow-sm">
-          <span class="text-xs font-bold tracking-widest uppercase text-brand-goldDark">Ce que nous faisons</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-black mt-2">
-            Des actions qui protègent aujourd’hui et construisent demain.
-          </h2>
-          <p class="text-brand-ink/85 mt-3 max-w-3xl">
-            Nous intervenons à plusieurs niveaux pour répondre aux urgences, renforcer les compétences et créer un environnement où les femmes peuvent s’épanouir durablement.
-          </p>
+        </section>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            <div class="p-6 rounded-2xl bg-brand-ivory border border-brand-gold/40 space-y-2">
-              <span class="inline-block font-serif text-lg font-bold text-brand-green">01</span>
-              <h3 class="font-serif text-lg font-bold text-brand-black">Accompagnement et écoute</h3>
-              <p class="text-sm text-brand-ink/80 leading-relaxed">
-                Un espace confidentiel et bienveillant pour être entendue, orientée et soutenue.
-              </p>
+
+        <!-- ACTIONS -->
+        <section class="actions section" id="actions">
+
+            <div class="section-label">
+                NOS ENGAGEMENTS
             </div>
 
-            <div class="p-6 rounded-2xl bg-brand-ivory border border-brand-gold/40 space-y-2">
-              <span class="inline-block font-serif text-lg font-bold text-brand-green">02</span>
-              <h3 class="font-serif text-lg font-bold text-brand-black">Protection et sensibilisation</h3>
-              <p class="text-sm text-brand-ink/80 leading-relaxed">
-                Des actions concrètes pour prévenir les violences et mieux faire connaître les droits des femmes.
-              </p>
+            <h2>
+                Agir pour transformer des vies.
+            </h2>
+
+            <p>
+                Découvrez progressivement nos domaines
+                d'intervention et nos initiatives.
+            </p>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="contact section" id="contact">
+
+            <div class="section-label">
+                RESTONS EN CONTACT
             </div>
 
-            <div class="p-6 rounded-2xl bg-brand-ivory border border-brand-gold/40 space-y-2">
-              <span class="inline-block font-serif text-lg font-bold text-brand-green">03</span>
-              <h3 class="font-serif text-lg font-bold text-brand-black">Autonomisation économique</h3>
-              <p class="text-sm text-brand-ink/80 leading-relaxed">
-                Des parcours qui renforcent les compétences, l’indépendance financière et le pouvoir d’agir.
-              </p>
-            </div>
+            <h2>
+                Ensemble, faisons avancer la dignité
+                et l'autonomie des femmes.
+            </h2>
 
-            <div class="p-6 rounded-2xl bg-brand-ivory border border-brand-gold/40 space-y-2">
-              <span class="inline-block font-serif text-lg font-bold text-brand-green">04</span>
-              <h3 class="font-serif text-lg font-bold text-brand-black">Formation</h3>
-              <p class="text-sm text-brand-ink/80 leading-relaxed">
-                Des apprentissages pratiques pour développer les talents et ouvrir de nouvelles perspectives.
-              </p>
-            </div>
+            <p>
+                Kinshasa, République démocratique du Congo
+            </p>
 
-            <div class="p-6 rounded-2xl bg-brand-ivory border border-brand-gold/40 space-y-2">
-              <span class="inline-block font-serif text-lg font-bold text-brand-green">05</span>
-              <h3 class="font-serif text-lg font-bold text-brand-black">Soutien aux victimes</h3>
-              <p class="text-sm text-brand-ink/80 leading-relaxed">
-                Un accompagnement attentif des femmes confrontées aux violences conjugales et à la vulnérabilité.
-              </p>
-            </div>
+            <p>
+                Téléphone : +243 971 833 809
+            </p>
 
-            <div class="p-6 rounded-2xl bg-brand-ivory border border-brand-gold/40 space-y-2">
-              <span class="inline-block font-serif text-lg font-bold text-brand-green">06</span>
-              <h3 class="font-serif text-lg font-bold text-brand-black">Initiatives communautaires</h3>
-              <p class="text-sm text-brand-ink/80 leading-relaxed">
-                Des projets collectifs qui font progresser durablement les femmes, les familles et les communautés.
-              </p>
-            </div>
-          </div>
+            <p>
+                Email : coeurdesfemmes243@gmail.com
+            </p>
 
-          <div class="mt-8">
-            <a href="https://wa.me/243971833809?text=Bonjour%20C%C5%93ur%20des%20Femmes%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20organisation%2C%20vos%20actions%20et%20les%20possibilit%C3%A9s%20d'accompagnement."
-               target="_blank" rel="noopener noreferrer"
-               class="inline-block px-7 py-3.5 rounded-full bg-brand-green hover:bg-brand-black text-white font-bold text-sm border border-brand-gold transition">
-              Nous parler de votre situation
+            <a href="https://wa.me/243971833809"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-primary">
+                Nous écrire sur WhatsApp →
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ==================== PAGE 4 : PHOTOS DE NOS ACTIONS ==================== -->
-    <section id="page-galerie" class="page-section py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto space-y-8">
-        <div class="bg-brand-white rounded-3xl border border-brand-gold/40 p-8 shadow-sm flex flex-wrap justify-between items-center gap-4">
-          <div>
-            <span class="text-xs font-bold tracking-widest uppercase text-brand-goldDark">Terrain & Réalisations</span>
-            <h2 class="font-serif text-3xl font-bold text-brand-black mt-1">Photos de nos actions</h2>
-            <p class="text-sm text-brand-ink/80 mt-1">
-              Ajoutez vos photos d'activités sur GitHub ou prévisualisez-les directement ici.
-            </p>
-          </div>
-          <label class="cursor-pointer px-5 py-3 rounded-full bg-brand-green hover:bg-brand-black text-white border border-brand-gold text-xs font-bold uppercase tracking-wider transition">
-            + Ajouter / Prévisualiser des photos
-            <input type="file" accept="image/*" multiple onchange="previewUploadedImages(event)" class="hidden" />
-          </label>
-        </div>
+        </section>
 
-        <div id="galleryGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="rounded-2xl overflow-hidden bg-brand-white border border-brand-gold/40 shadow-sm">
-            <div class="aspect-[4/3] bg-brand-ivory flex flex-col items-center justify-center p-6 text-center border-b border-brand-gold/20">
-              <span class="text-3xl mb-2">📷</span>
-              <p class="font-bold text-brand-green text-sm">Accompagnement & Écoute</p>
-              <p class="text-xs text-brand-ink/70 mt-1">Importez votre photo de terrain ici</p>
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-brand-black text-sm">Séances d'écoute et d'orientation</h3>
-              <p class="text-xs text-brand-ink/75 mt-1">Soutien confidentiel à Kinshasa.</p>
-            </div>
-          </div>
+    </main>
 
-          <div class="rounded-2xl overflow-hidden bg-brand-white border border-brand-gold/40 shadow-sm">
-            <div class="aspect-[4/3] bg-brand-ivory flex flex-col items-center justify-center p-6 text-center border-b border-brand-gold/20">
-              <span class="text-3xl mb-2">📷</span>
-              <p class="font-bold text-brand-green text-sm">Formation & Autonomie</p>
-              <p class="text-xs text-brand-ink/70 mt-1">Importez votre photo d'atelier ici</p>
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-brand-black text-sm">Ateliers de formation et gestion</h3>
-              <p class="text-xs text-brand-ink/75 mt-1">Développement des compétences des femmes.</p>
-            </div>
-          </div>
 
-          <div class="rounded-2xl overflow-hidden bg-brand-white border border-brand-gold/40 shadow-sm">
-            <div class="aspect-[4/3] bg-brand-ivory flex flex-col items-center justify-center p-6 text-center border-b border-brand-gold/20">
-              <span class="text-3xl mb-2">📷</span>
-              <p class="font-bold text-brand-green text-sm">Initiatives Communautaires</p>
-              <p class="text-xs text-brand-ink/70 mt-1">Importez votre photo communautaire ici</p>
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-brand-black text-sm">Sensibilisation et solidarité</h3>
-              <p class="text-xs text-brand-ink/75 mt-1">Actions collectives avec les communautés.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- PIED DE PAGE -->
+    <footer class="footer">
 
-    <!-- ==================== PAGE 5 : CONTACT ==================== -->
-    <section id="page-contact" class="page-section py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto bg-brand-white rounded-3xl border border-brand-gold/40 p-8 sm:p-10 shadow-sm grid lg:grid-cols-2 gap-10">
-        <div class="space-y-5">
-          <span class="text-xs font-bold tracking-widest uppercase text-brand-goldDark">Contact</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-black">Parlons, simplement.</h2>
-          <p class="text-brand-ink/85">
-            Pour demander un accompagnement, proposer un partenariat ou soutenir nos initiatives, contactez directement notre équipe.
-          </p>
-          <p class="text-sm text-brand-ink/85">
-            Vous avez besoin d’aide ou souhaitez soutenir notre mission ? Notre équipe vous écoute. Écrivez-nous directement sur WhatsApp pour découvrir nos actions ou être orientée en toute confidentialité.
-          </p>
+        <h3>Cœur des Femmes ASBL</h3>
 
-          <div class="p-5 rounded-2xl bg-brand-ivory border border-brand-gold/40 space-y-1">
-            <h3 class="font-serif text-lg font-bold text-brand-green">Cœur des Femmes ASBL</h3>
-            <p class="text-sm text-brand-ink/80">Kinshasa, République démocratique du Congo</p>
-            <p class="text-base font-bold text-brand-black pt-1">
-              <a href="tel:+243971833809" class="hover:text-brand-green">+243 971 833 809</a>
-            </p>
-          </div>
+        <p>GESTION • DÉVELOPPEMENT • LIBERTÉ</p>
 
-          <a href="https://wa.me/243971833809?text=Bonjour%20C%C5%93ur%20des%20Femmes%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20organisation%2C%20vos%20actions%20et%20les%20possibilit%C3%A9s%20d'accompagnement."
-             target="_blank" rel="noopener noreferrer"
-             class="inline-block px-7 py-3.5 rounded-full bg-brand-green hover:bg-brand-black text-white font-bold text-sm border border-brand-gold transition">
-            Écrire maintenant sur WhatsApp
-          </a>
-        </div>
+        <p>
+            © 2026 Cœur des Femmes ASBL.
+            Tous droits réservés.
+        </p>
 
-        <form onsubmit="handleContactSubmit(event)" class="p-7 rounded-2xl bg-brand-ivory border border-brand-gold/40 space-y-4">
-          <h3 class="font-serif text-xl font-bold text-brand-black">Laisser un message</h3>
-          <div>
-            <label class="block text-xs font-semibold text-brand-ink mb-1">Nom complet</label>
-            <input type="text" required placeholder="Votre nom" class="w-full px-4 py-3 rounded-xl bg-brand-white border border-brand-gold/40 text-brand-black focus:outline-none focus:border-brand-green" />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-brand-ink mb-1">Téléphone / WhatsApp</label>
-            <input type="text" required placeholder="+243 ..." class="w-full px-4 py-3 rounded-xl bg-brand-white border border-brand-gold/40 text-brand-black focus:outline-none focus:border-brand-green" />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-brand-ink mb-1">Message</label>
-            <textarea rows="4" required placeholder="Votre demande d'accompagnement, partenariat ou soutien..." class="w-full px-4 py-3 rounded-xl bg-brand-white border border-brand-gold/40 text-brand-black focus:outline-none focus:border-brand-green"></textarea>
-          </div>
-          <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-green hover:bg-brand-black text-white font-bold border border-brand-gold transition">
-            Envoyer le message
-          </button>
-          <p id="formFeedback" class="hidden text-center text-sm font-semibold text-brand-green pt-2">
-            ✓ Merci ! Vous pouvez aussi nous joindre directement au +243 971 833 809.
-          </p>
-        </form>
-      </div>
-    </section>
-  </main>
+    </footer>
 
-  <!-- PIED DE PAGE -->
-  <footer class="bg-brand-black text-gray-200 border-t-4 border-brand-gold py-12 px-4 text-center text-sm">
-    <div class="max-w-7xl mx-auto space-y-3">
-      <div class="flex justify-center items-center gap-3">
-        <img src="photo-output.jpeg" alt="Cœur des Femmes" class="w-10 h-10 rounded-full bg-white p-0.5 border border-brand-gold object-contain" />
-        <span class="font-serif text-xl font-bold text-white">Cœur des Femmes</span>
-      </div>
-      <p class="text-xs font-bold tracking-[0.16em] text-brand-goldBright uppercase">
-        Gestion · Développement · Liberté
-      </p>
-      <p class="max-w-xl mx-auto text-gray-300">
-        Pour une société où chaque femme peut vivre dans la dignité, développer son potentiel et choisir librement son avenir.
-      </p>
-      <p class="text-xs text-gray-400 pt-2">
-        © 2026 Cœur des Femmes ASBL. Tous droits réservés. · +243 971 833 809
-      </p>
-    </div>
-  </footer>
 
-  <script>
-    const pageHistory = ['accueil'];
+    <!-- BOUTON WHATSAPP FLOTTANT -->
+    <a href="https://wa.me/243971833809"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contacter Cœur des Femmes sur WhatsApp">
+        ♡
+    </a>
 
-    function navigateTo(pageId, pushToHistory = true) {
-      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
-      const target = document.getElementById('page-' + pageId);
-      if (target) target.classList.add('active');
 
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-        if (btn.dataset.nav === pageId) {
-          btn.classList.add('text-brand-green', 'bg-brand-green/10', 'font-semibold');
-          btn.classList.remove('text-brand-ink', 'font-medium');
-        } else {
-          btn.classList.remove('text-brand-green', 'bg-brand-green/10', 'font-semibold');
-          btn.classList.add('text-brand-ink', 'font-medium');
-        }
-      });
+    <script src="script.js"></script>
 
-      if (pushToHistory && pageHistory[pageHistory.length - 1] !== pageId) {
-        pageHistory.push(pageId);
-      }
-
-      document.getElementById('mobileMenu').classList.add('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function goBack() {
-      if (pageHistory.length > 1) {
-        pageHistory.pop();
-        const prevPage = pageHistory[pageHistory.length - 1];
-        navigateTo(prevPage, false);
-      } else {
-        navigateTo('accueil', false);
-      }
-    }
-
-    function toggleMobileMenu() {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    }
-
-    function handleContactSubmit(e) {
-      e.preventDefault();
-      document.getElementById('formFeedback').classList.remove('hidden');
-      e.target.reset();
-    }
-
-    function previewUploadedImages(event) {
-      const files = event.target.files;
-      const grid = document.getElementById('galleryGrid');
-      if (!files.length) return;
-      grid.innerHTML = '';
-      Array.from(files).forEach((file, idx) => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const card = document.createElement('div');
-          card.className = 'rounded-2xl overflow-hidden bg-brand-white border border-brand-gold/40 shadow-sm';
-          card.innerHTML = `
-            <div class="aspect-[4/3] overflow-hidden bg-brand-ivory">
-              <img src="${e.target.result}" alt="Action ${idx + 1}" class="w-full h-full object-cover" />
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-brand-green text-sm">${file.name.replace(/\.[^/.]+$/, "")}</h3>
-              <p class="text-xs text-brand-ink/75 mt-1">Cœur des Femmes ASBL — Kinshasa</p>
-            </div>
-          `;
-          grid.appendChild(card);
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    let touchStartX = 0;
-    document.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    document.addEventListener('touchend', e => {
-      const touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX < 50 && (touchEndX - touchStartX) > 90) {
-        goBack();
-      }
-    }, { passive: true });
-  </script>
 </body>
 </html>
