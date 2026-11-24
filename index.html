@@ -1,59 +1,51 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="Cœur des Femmes ASBL accompagne les femmes vers la dignité, l'autonomie et la liberté.">
 
-    <title>Cœur des Femmes ASBL | Accueil</title>
+    <title>Cœur des Femmes ASBL</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =================================
-         EN-TÊTE DU SITE
-    ================================== -->
-
+    <!-- EN-TÊTE -->
     <header class="header">
 
-        <div class="brand">
-
-            <img
-                src="images/logo-coeur-des-femmes.png"
-                alt="Logo officiel Cœur des Femmes ASBL"
-            >
+        <a href="#accueil" class="brand">
+            <img src="images/logo-coeur-des-femmes.png"
+                 alt="Logo Cœur des Femmes ASBL">
 
             <div class="brand-text">
                 <h1>Cœur des Femmes</h1>
                 <p>GESTION • DÉVELOPPEMENT • LIBERTÉ</p>
             </div>
-
-        </div>
+        </a>
 
         <button
             class="menu-toggle"
             id="menuToggle"
+            type="button"
             aria-label="Ouvrir le menu"
             aria-expanded="false"
+            aria-controls="navigation"
         >
-            ☰
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
         <nav class="navigation" id="navigation">
 
             <a href="#accueil">Accueil</a>
-
             <a href="#association">Qui sommes-nous</a>
-
             <a href="activites.html">Nos activités</a>
-
             <a href="projets.html">Nos projets</a>
-
             <a href="#contact">Contact</a>
 
         </nav>
@@ -61,12 +53,9 @@
     </header>
 
 
-    <!-- =================================
-         SECTION ACCUEIL
-    ================================== -->
-
     <main>
 
+        <!-- ACCUEIL -->
         <section class="hero" id="accueil">
 
             <div class="hero-overlay"></div>
@@ -76,6 +65,8 @@
                 <span class="hero-label">
                     ASBL • KINSHASA, RÉPUBLIQUE DÉMOCRATIQUE DU CONGO
                 </span>
+
+                <div class="gold-line"></div>
 
                 <h2>
                     Chaque femme a du prix.
@@ -94,12 +85,10 @@
                         Découvrir notre mission
                     </a>
 
-                    <a
-                        href="https://wa.me/243971833809"
-                        class="btn btn-secondary"
-                        target="_blank"
-                        rel="noopener"
-                    >
+                    <a href="https://wa.me/243971833809"
+                       class="btn btn-secondary"
+                       target="_blank"
+                       rel="noopener">
                         Nous contacter
                     </a>
 
@@ -110,19 +99,16 @@
         </section>
 
 
-        <!-- =================================
-             PRÉSENTATION DE L'ASSOCIATION
-        ================================== -->
-
-        <section class="section" id="association">
+        <!-- PRÉSENTATION -->
+        <section class="section about-section" id="association">
 
             <div class="section-heading">
 
-                <span class="section-label">
-                    Notre identité
-                </span>
+                <span class="section-label">Notre identité</span>
 
                 <h2>Qui sommes-nous ?</h2>
+
+                <div class="heading-line"></div>
 
             </div>
 
@@ -147,7 +133,7 @@
                 </p>
 
                 <a href="association.html" class="btn btn-primary">
-                    En savoir plus sur notre association
+                    En savoir plus
                 </a>
 
             </div>
@@ -155,10 +141,7 @@
         </section>
 
 
-        <!-- =================================
-             QUELQUES PHOTOS DE NOS ACTIVITÉS
-        ================================== -->
-
+        <!-- PHOTOGRAPHIES -->
         <section class="section gallery-preview" id="nos-activites">
 
             <div class="section-heading">
@@ -169,6 +152,8 @@
 
                 <h2>Quelques images de nos activités</h2>
 
+                <div class="heading-line"></div>
+
                 <p>
                     Chaque image raconte un moment de notre engagement,
                     de nos rencontres et de nos actions auprès des femmes
@@ -177,83 +162,53 @@
 
             </div>
 
-
-            <!-- GALERIE DE PHOTOS -->
-
             <div class="photo-gallery">
 
                 <figure class="gallery-item">
-
-                    <img
-                        src="images/accueil/activite1.jpg"
-                        alt="Activité de Cœur des Femmes ASBL"
-                        loading="lazy"
-                    >
-
+                    <img src="images/accueil/activite1.jpg"
+                         alt="Activité de Cœur des Femmes ASBL"
+                         loading="lazy">
                 </figure>
 
-
                 <figure class="gallery-item">
-
-                    <img
-                        src="images/accueil/activite2.jpg"
-                        alt="Accompagnement des femmes"
-                        loading="lazy"
-                    >
-
+                    <img src="images/accueil/activite2.jpg"
+                         alt="Accompagnement des femmes"
+                         loading="lazy">
                 </figure>
 
-
                 <figure class="gallery-item">
-
-                    <img
-                        src="images/accueil/activite3.jpg"
-                        alt="Sensibilisation et partage"
-                        loading="lazy"
-                    >
-
+                    <img src="images/accueil/activite3.jpg"
+                         alt="Sensibilisation et partage"
+                         loading="lazy">
                 </figure>
 
-
                 <figure class="gallery-item">
-
-                    <img
-                        src="images/accueil/activite4.jpg"
-                        alt="Initiative communautaire"
-                        loading="lazy"
-                    >
-
+                    <img src="images/accueil/activite4.jpg"
+                         alt="Initiative communautaire"
+                         loading="lazy">
                 </figure>
 
             </div>
 
-
-            <!-- BOUTON VERS LES ACTIVITÉS -->
-
             <div class="gallery-more">
-
                 <a href="activites.html" class="btn btn-primary">
                     Découvrir toutes nos activités
                 </a>
-
             </div>
 
         </section>
 
 
-        <!-- =================================
-             CONTACT
-        ================================== -->
-
+        <!-- CONTACT -->
         <section class="section contact-section" id="contact">
 
             <div class="section-heading">
 
-                <span class="section-label">
-                    Restons en contact
-                </span>
+                <span class="section-label">Restons en contact</span>
 
                 <h2>Contactez-nous</h2>
+
+                <div class="heading-line"></div>
 
                 <p>
                     Vous souhaitez nous rejoindre, soutenir nos actions
@@ -262,7 +217,6 @@
                 </p>
 
             </div>
-
 
             <div class="contact-content">
 
@@ -280,12 +234,10 @@
                     </a>
                 </p>
 
-                <a
-                    href="https://wa.me/243971833809"
-                    class="btn btn-primary"
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a href="https://wa.me/243971833809"
+                   class="btn btn-primary"
+                   target="_blank"
+                   rel="noopener">
                     Nous écrire sur WhatsApp
                 </a>
 
@@ -296,27 +248,25 @@
     </main>
 
 
-    <!-- =================================
-         PIED DE PAGE
-    ================================== -->
-
+    <!-- PIED DE PAGE -->
     <footer class="footer">
 
         <div class="footer-content">
 
             <h2>Cœur des Femmes ASBL</h2>
 
-            <p>
-                Gestion • Développement • Liberté
+            <p class="footer-motto">
+                GESTION • DÉVELOPPEMENT • LIBERTÉ
             </p>
 
             <p>
                 Ensemble pour la dignité et l'autonomisation des femmes.
             </p>
 
+            <div class="footer-line"></div>
+
             <p class="copyright">
-                © 2026 Cœur des Femmes ASBL.
-                Tous droits réservés.
+                © 2026 Cœur des Femmes ASBL. Tous droits réservés.
             </p>
 
         </div>
@@ -324,25 +274,17 @@
     </footer>
 
 
-    <!-- =================================
-         BOUTON WHATSAPP FLOTTANT
-    ================================== -->
-
-    <a
-        href="https://wa.me/243971833809"
-        class="whatsapp-float"
-        target="_blank"
-        rel="noopener"
-        aria-label="Contacter Cœur des Femmes sur WhatsApp"
-    >
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/243971833809"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener"
+       aria-label="Contacter Cœur des Femmes sur WhatsApp">
         WhatsApp
     </a>
 
 
-    <!-- JAVASCRIPT -->
-
     <script src="script.js"></script>
 
 </body>
-
 </html>
