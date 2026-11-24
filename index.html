@@ -4,245 +4,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Cœur des Femmes ASBL accompagne les femmes vers la dignité, l'autonomie et la liberté à Kinshasa.">
-
-    <meta name="theme-color" content="#073D35">
-
-    <title>Cœur des Femmes ASBL | Gestion • Développement • Liberté</title>
-
+    <meta name="description" content="Cœur des Femmes ASBL accompagne, sensibilise et soutient les femmes vers la dignité, l'autonomie et la liberté.">
+    <title>Cœur des Femmes ASBL</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- EN-TÊTE DU SITE -->
-    <header class="header">
+<!-- EN-TETE -->
+<header class="header">
+    <div class="brand">
+        <img src="images/logo-coeur-des-femmes.png" alt="Logo Cœur des Femmes ASBL">
+        <div class="brand-text">
+            <h1>Cœur des Femmes</h1>
+            <p>GESTION • DÉVELOPPEMENT • LIBERTÉ</p>
+        </div>
+    </div>
 
-        <a href="index.html" class="brand">
-            <img
-                src="images/logo-coeur-des-femmes.png"
-                alt="Logo officiel Cœur des Femmes ASBL"
-                class="logo"
-            >
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Ouvrir le menu" aria-expanded="false">
+        ☰
+    </button>
 
-            <div class="brand-text">
-                <h2>Cœur des Femmes</h2>
-                <span>GESTION • DÉVELOPPEMENT • LIBERTÉ</span>
-            </div>
-        </a>
-
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav class="navigation" id="navigation">
-
-            <a href="#accueil">Accueil</a>
-            <a href="#association">Qui sommes-nous ?</a>
-            <a href="#mission">Notre mission</a>
-            <a href="#actions">Nos actions</a>
-            <a href="#contact">Contact</a>
-
-            <a href="https://wa.me/243971833809"
-               class="nav-donate">
-                Nous soutenir
-            </a>
-
-        </nav>
-
-    </header>
+    <nav class="navigation" id="navigation">
+        <a href="#accueil">Accueil</a>
+        <a href="#association">Qui sommes-nous</a>
+        <a href="#accompagnements">Accompagnements</a>
+        <a href="#financement">Financement</a>
+        <a href="#sensibilisation">Sensibilisation</a>
+        <a href="#initiatives">Initiatives</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
 
-    <!-- PAGE D'ACCUEIL -->
-    <main>
+<!-- ACCUEIL -->
+<section class="hero" id="accueil">
+    <div class="hero-overlay"></div>
 
-        <section class="hero" id="accueil">
+    <div class="hero-content">
+        <span class="hero-label">
+            ASBL • KINSHASA, RÉPUBLIQUE DÉMOCRATIQUE DU CONGO
+        </span>
 
-            <div class="hero-overlay"></div>
-
-            <div class="hero-content">
-
-                <div class="location">
-                    <span></span>
-                    ASBL • KINSHASA, RÉPUBLIQUE DÉMOCRATIQUE DU CONGO
-                </div>
-
-                <h1>
-                    Chaque femme a du prix.
-                    Chaque histoire a de la valeur.
-                </h1>
-
-                <p>
-                    Cœur des Femmes accompagne les femmes vers
-                    la dignité, l'autonomie et la liberté.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#mission" class="btn-primary">
-                        Découvrir notre mission
-                        <span>→</span>
-                    </a>
-
-                    <a href="https://wa.me/243971833809"
-                       class="btn-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <span>♡</span>
-                        Nous contacter sur WhatsApp
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-decoration"></div>
-
-        </section>
-
-
-        <!-- PRÉSENTATION -->
-        <section class="about section" id="association">
-
-            <div class="section-label">
-                QUI SOMMES-NOUS ?
-            </div>
-
-            <h2>
-                Une présence ancrée dans les réalités
-                des femmes à Kinshasa.
-            </h2>
-
-            <p>
-                Cœur des Femmes est une Association Sans But Lucratif
-                engagée dans la promotion des droits, de la dignité
-                et du bien-être des femmes.
-            </p>
-
-            <p>
-                Notre organisation œuvre pour bâtir une société
-                où chaque femme peut vivre dans le respect,
-                la sécurité et la dignité.
-            </p>
-
-        </section>
-
-
-        <!-- MISSION -->
-        <section class="mission section" id="mission">
-
-            <div class="section-label">
-                NOTRE ENGAGEMENT
-            </div>
-
-            <h2>
-                La dignité n'est pas une promesse.
-                C'est le point de départ.
-            </h2>
-
-            <p>
-                Nous construisons une société où chaque femme
-                connaît sa valeur, exerce ses droits,
-                développe son potentiel et peut vivre
-                dans la dignité et la liberté.
-            </p>
-
-            <a href="#actions" class="text-link">
-                Découvrir nos engagements →
-            </a>
-
-        </section>
-
-
-        <!-- ACTIONS -->
-        <section class="actions section" id="actions">
-
-            <div class="section-label">
-                NOS ENGAGEMENTS
-            </div>
-
-            <h2>
-                Agir pour transformer des vies.
-            </h2>
-
-            <p>
-                Découvrez progressivement nos domaines
-                d'intervention et nos initiatives.
-            </p>
-
-        </section>
-
-
-        <!-- CONTACT -->
-        <section class="contact section" id="contact">
-
-            <div class="section-label">
-                RESTONS EN CONTACT
-            </div>
-
-            <h2>
-                Ensemble, faisons avancer la dignité
-                et l'autonomie des femmes.
-            </h2>
-
-            <p>
-                Kinshasa, République démocratique du Congo
-            </p>
-
-            <p>
-                Téléphone : +243 971 833 809
-            </p>
-
-            <p>
-                Email : coeurdesfemmes243@gmail.com
-            </p>
-
-            <a href="https://wa.me/243971833809"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn-primary">
-                Nous écrire sur WhatsApp →
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- PIED DE PAGE -->
-    <footer class="footer">
-
-        <h3>Cœur des Femmes ASBL</h3>
-
-        <p>GESTION • DÉVELOPPEMENT • LIBERTÉ</p>
+        <h2>Chaque femme a du prix.<br>
+            Chaque histoire a de la valeur.</h2>
 
         <p>
-            © 2026 Cœur des Femmes ASBL.
-            Tous droits réservés.
+            Cœur des Femmes accompagne les femmes vers la dignité,
+            l'autonomie et la liberté.
         </p>
 
-    </footer>
+        <div class="hero-buttons">
+            <a href="#association" class="btn btn-primary">
+                Découvrir notre mission
+            </a>
+
+            <a href="https://wa.me/243971833809"
+               class="btn btn-secondary">
+                Nous contacter
+            </a>
+        </div>
+    </div>
+</section>
 
 
-    <!-- BOUTON WHATSAPP FLOTTANT -->
+<!-- ASSOCIATION -->
+<section class="section" id="association">
+    <div class="section-heading">
+        <span class="section-label">Notre identité</span>
+        <h2>Qui sommes-nous ?</h2>
+    </div>
+
+    <p>
+        Cœur des Femmes ASBL est une organisation engagée dans
+        l'accompagnement, la protection, la sensibilisation et
+        l'autonomisation des femmes.
+    </p>
+
+    <p>
+        Nous œuvrons pour un environnement où chaque femme peut
+        retrouver sa dignité, renforcer ses capacités et construire
+        un avenir plus libre.
+    </p>
+</section>
+
+
+<!-- ACCOMPAGNEMENTS -->
+<section class="section gallery-section" id="accompagnements">
+
+    <div class="section-heading">
+        <span class="section-label">Nos actions</span>
+        <h2>Nos accompagnements</h2>
+
+        <p>
+            Découvrez en images nos actions d'accompagnement,
+            nos rencontres et notre présence auprès des femmes
+            et des communautés.
+        </p>
+    </div>
+
+    <div class="photo-gallery" id="gallery-accompagnements">
+
+        <figure class="gallery-item">
+            <img src="images/accompagnements/photo1.jpg"
+                 alt="Accompagnement des femmes"
+                 loading="lazy">
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="images/accompagnements/photo2.jpg"
+                 alt="Action de soutien"
+                 loading="lazy">
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="images/accompagnements/photo3.jpg"
+                 alt="Rencontre avec les bénéficiaires"
+                 loading="lazy">
+        </figure>
+
+    </div>
+</section>
+
+
+<!-- FINANCEMENT -->
+<section class="section gallery-section" id="financement">
+
+    <div class="section-heading">
+        <span class="section-label">Autonomisation</span>
+        <h2>Financement & autonomisation</h2>
+
+        <p>
+            Des initiatives, des opportunités et des actions visant
+            à soutenir l'autonomie économique et le développement
+            des femmes.
+        </p>
+    </div>
+
+    <div class="photo-gallery" id="gallery-financement">
+
+        <figure class="gallery-item">
+            <img src="images/financement/photo1.jpg"
+                 alt="Initiative économique"
+                 loading="lazy">
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="images/financement/photo2.jpg"
+                 alt="Activité de financement"
+                 loading="lazy">
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="images/financement/photo3.jpg"
+                 alt="Autonomisation des femmes"
+                 loading="lazy">
+        </figure>
+
+    </div>
+</section>
+
+
+<!-- SENSIBILISATION -->
+<section class="section gallery-section" id="sensibilisation">
+
+    <div class="section-heading">
+        <span class="section-label">Informer & agir</span>
+        <h2>Sensibilisation & partage</h2>
+
+        <p>
+            Des moments d'échange, de sensibilisation, de dialogue,
+            d'apprentissage et de partage au sein des communautés.
+        </p>
+    </div>
+
+    <div class="photo-gallery" id="gallery-sensibilisation">
+
+        <figure class="gallery-item">
+            <img src="images/sensibilisation/photo1.jpg"
+                 alt="Sensibilisation communautaire"
+                 loading="lazy">
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="images/sensibilisation/photo2.jpg"
+                 alt="Échange et partage"
+                 loading="lazy">
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="images/sensibilisation/photo3.jpg"
+                 alt="Activité de sensibilisation"
+                 loading="lazy">
+        </figure>
+
+    </div>
+</section>
+
+
+<!-- INITIATIVES COMMUNAUTAIRES -->
+<section class="section gallery-section" id="initiatives">
+
+    <div class="section-heading">
+        <span class="section-label">Au cœur des communautés</span>
+        <h2>Initiatives communautaires</h2>
+
+        <p>
+            Retrouvez les projets, les initiatives solidaires et
+            les actions qui contribuent à la transformation
+            de notre environnement social.
+        </p>
+    </div>
+
+
+    <!-- PROJET MON EGLISE MON REFUGE -->
+    <article class="project-card" id="mon-eglise-mon-refuge">
+
+        <div class="project-cover">
+            <img src="images/initiatives/mon-eglise-mon-refuge/cover.jpg"
+                 alt="Projet Mon Église, Mon Refuge"
+                 loading="lazy">
+        </div>
+
+        <div class="project-content">
+
+            <span class="section-label">Projet communautaire</span>
+
+            <h3>Mon Église, Mon Refuge</h3>
+
+            <p>
+                Découvrez notre initiative
+                « Mon Église, Mon Refuge », à travers sa présentation,
+                ses actions, ses moments de partage et ses photographies.
+            </p>
+
+            <a href="mon-eglise-mon-refuge.html"
+               class="btn btn-primary">
+                Découvrir le projet
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- AUTRES INITIATIVES -->
+    <div class="photo-gallery" id="gallery-initiatives">
+
+        <figure class="gallery-item">
+            <img src="images/initiatives/photo1.jpg"
+                 alt="Initiative communautaire"
+                 loading="lazy">
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="images/initiatives/photo2.jpg"
+                 alt="Action solidaire"
+                 loading="lazy">
+        </figure>
+
+        <figure class="gallery-item">
+            <img src="images/initiatives/photo3.jpg"
+                 alt="Activité communautaire"
+                 loading="lazy">
+        </figure>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+
+    <div class="section-heading">
+        <span class="section-label">Restons en contact</span>
+        <h2>Contactez-nous</h2>
+    </div>
+
+    <p>
+        Vous souhaitez nous rejoindre, soutenir nos actions,
+        collaborer avec nous ou obtenir un accompagnement ?
+    </p>
+
+    <p>
+        <strong>Email :</strong>
+        <a href="mailto:coeurdesfemmes243@gmail.com">
+            coeurdesfemmes243@gmail.com
+        </a>
+    </p>
+
+    <p>
+        <strong>Téléphone :</strong>
+        <a href="https://wa.me/243971833809">
+            +243 971 833 809
+        </a>
+    </p>
+
     <a href="https://wa.me/243971833809"
-       class="whatsapp-float"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Contacter Cœur des Femmes sur WhatsApp">
-        ♡
+       class="btn btn-primary">
+        Écrire sur WhatsApp
     </a>
 
+</section>
 
-    <script src="script.js"></script>
+
+<!-- PIED DE PAGE -->
+<footer class="footer">
+    <p>© 2026 Cœur des Femmes ASBL</p>
+    <p>Gestion • Développement • Liberté</p>
+</footer>
+
+
+<!-- WHATSAPP FLOTTANT -->
+<a href="https://wa.me/243971833809"
+   class="whatsapp-float"
+   aria-label="Contacter Cœur des Femmes sur WhatsApp">
+    WhatsApp
+</a>
+
+<script src="script.js"></script>
 
 </body>
 </html>
